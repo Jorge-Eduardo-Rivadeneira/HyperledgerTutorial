@@ -1,0 +1,57 @@
+################################################################################
+#   crypto-config.yaml
+#   Modified by: Jorge Eduardo Rivadeneira Muñoz
+#   Date: 06/03/2023                      
+################################################################################
+
+OrdererOrgs:
+  # ---------------------------------------------------------------------------
+  # Orderer
+  # ---------------------------------------------------------------------------
+  - Name: Orderer
+    Domain: example.com
+    # ---------------------------------------------------------------------------
+    # "Specs" - See PeerOrgs below for complete description
+    # ---------------------------------------------------------------------------
+    Specs:
+      - Hostname: orderer
+      - Hostname: orderer2
+      - Hostname: orderer3
+
+# ---------------------------------------------------------------------------
+# "PeerOrgs" - Definition of organizations managing peer nodes
+# ---------------------------------------------------------------------------
+PeerOrgs:
+  # ---------------------------------------------------------------------------
+  # Org1
+  # ---------------------------------------------------------------------------
+  - Name: Org1
+    Domain: org1.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1 #Number of Nodes 
+    Users:
+      Count: 1 #Number of Users (admin user + 1 transactional user)
+
+  - Name: Org2
+    Domain: org2.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1
+
+    Users:
+      Count: 1
+  
+  - Name: Org3
+    Domain: org3.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 1
+
+    Users:
+      Count: 1
+  
+
